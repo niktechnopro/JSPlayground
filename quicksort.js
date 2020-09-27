@@ -18,7 +18,7 @@ function qsort(array, left, right){
   return array;
 }
 
-//implementing partition
+//implementing partition - Lomuto partition function
 function partition(array, low, high){
   //picking the pivot - might be last, first or any random number
   // the present algorith will use last number in array as pivot
