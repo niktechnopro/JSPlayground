@@ -18,4 +18,16 @@ function chunk(arr, chk){
   return chunkedArray;
 }
 
+//another way
+// function chunk(array, size){
+//   let chunked = [];
+//   let index = 0;
+
+//   while(index < array.length){
+//     chunked.push(array.slice(index, index+size));
+//     index += size;
+//   }
+//   return chunked;
+// }
+
 console.log(chunk(test2, 2));
