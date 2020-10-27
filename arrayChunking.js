@@ -19,6 +19,7 @@ function chunk(arr, chk){
 }
 
 //another way
+//slice also returns new array with selected items - does not mutate original array
 // function chunk(array, size){
 //   let chunked = [];
 //   let index = 0;
