@@ -1,6 +1,6 @@
 //anagram - letters can be rearraanged to form different word/sentence
 let stringA = "rail safety";
-let stringB = "Fairy Taless"
+let stringB = "Fairy Tales"
 //word.replace(/[^\w]/g, "").toLowerCase();
 
 
@@ -23,7 +23,6 @@ function anagrams(stringA, stringB){
     for(let l of Object.keys(gr)){
       if(gr[l] !== lw[l]){
         return false;
-        break;
       }
     }
     return true;
@@ -36,8 +35,8 @@ function anagrams(stringA, stringB){
   let objA = objBuilder(normA);
   let objB = objBuilder(normB);
   //compare which obj is greater
-  if(Object.keys(objA).length > Object.keys(objB).length){
-    return comparingObjects(objA, objB);
+  if(Object.keys(objA).length !== Object.keys(objB).length){//immediate false;
+    return false;
   }
   return comparingObjects(objB, objA);
 }
