@@ -1,3 +1,5 @@
+//another solution would be to make arrays of keys, then sort and compare
+
 //anagram - letters can be rearraanged to form different word/sentence
 let stringA = "rail safety";
 let stringB = "Fairy Tales"
