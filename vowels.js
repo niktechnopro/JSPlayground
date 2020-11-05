@@ -13,7 +13,7 @@ let v = ["a", "e", "i", "o", "u"];
 //   return n;
 // }
 
-//solution 2 - without array
+//solution 2 -without array
 // function vowels(str){
 //   const vowels = "aeiou";//preffered array like in method 1
 //   let n = 0;
