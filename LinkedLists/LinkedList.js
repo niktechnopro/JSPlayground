@@ -21,6 +21,18 @@ class LinkedList{
   insertFirst(data){
     this.head = new Node(data, this.head);
   }
+
+  size() {
+    let count = 0; 
+    console.log("this.head", this.head);
+    let node = this.head;
+    while (node) {
+        count++;
+        node = node.next
+        console.log("node: ", node)
+    }
+    return count;
+  }
 }
 
 const nodeOne = new Node(5);
@@ -31,5 +43,6 @@ console.log(nodeOne);
 list.head = nodeOne;
 console.log(list);
 list.insertFirst(7);
+list.insertFirst(2);
 console.log(list);
-
+console.log(list.size());
