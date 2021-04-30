@@ -20,7 +20,7 @@ console.log("sorted: ", test_array)
 function bubbleSort(arr){//implementation one
   let temp_arr=[];
   for(let i = 0; i < arr.length; i++){
-    console.log(arr[i])
+    // console.log(arr[i])
     if(arr[i+1] && arr[i] < arr[i+1]){
       temp_arr.push(arr[i]);
     }
@@ -32,6 +32,7 @@ function bubbleSort(arr){//implementation one
       temp_arr.push(arr[i]);
     }
   }
+  console.log(temp_arr);
   return temp_arr;
 }
 
