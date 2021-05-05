@@ -18,12 +18,24 @@
 // }
 
 //second way
-function reverseInt(n){
-  const reversed = n.toString().split("").reverse().join("");
-  if(n < 0){
-    return parseInt(reversed) * -1;
+// function reverseInt(n){
+//   const reversed = n.toString().split("").reverse().join("");
+//   if(n < 0){
+//     return parseInt(reversed) * -1;
+//   }
+//   return parseInt(reversed);
+// }
+
+
+//third way
+const reverseInt = (n) => {
+  let sign = Math.sign(n);
+  let reversed = "";
+  for(let char of n.toString()){
+    reversed = char + reversed;
   }
-  return parseInt(reversed);
+  reversed = sign * parseInt(reversed);
+  return reversed;
 }
 
 // reverseInt(1290000);
