@@ -15,5 +15,17 @@ function palindrome(str) {
     });
 }
 
+//option 3
+function palindrome(str){
+  for(let i = 0; i<str.length; i++){
+    // console.log(str[i], str[str.length - i - 1]);
+    if(str[i] != str[str.length - i - 1]) return false;
+  }
+  return true;
+}
+
+
+palindrome("abcba");
+
 palindrome("abba"); //true
 palindrome("abcdefgh");//false
