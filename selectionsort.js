@@ -14,9 +14,11 @@ function selectionSort(arr){
       }
     }
     //making swap
-    temp = arr[i];
-    arr[i] = arr[idxOfMin];
-    arr[idxOfMin] = temp;
+    if(i !== idxOfMin){
+      temp = arr[i];
+      arr[i] = arr[idxOfMin];
+      arr[idxOfMin] = temp;
+    }
   }
   return arr;
 }
