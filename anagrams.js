@@ -44,3 +44,32 @@ function anagrams(stringA, stringB){
 }
 
 console.log(anagrams(stringA, stringB));
+
+
+//just to calculate number of characters in string - using Map
+function numberOfCharacters(str){
+  str=str.replace(/\s/g, '').toLowerCase();
+  let mMap = new Map();
+  for (let char of str){
+    if(mMap.has(char)){
+      let count = mMap.get(char)+1;
+      mMap.set(char, mMap.get(char)+1);
+    }
+    else{
+      mMap.set(char, 1);
+    }
+  }
+  return mMap;
+}
+
+
+
+let text = "I am a sexy person";
+
+let result = numberOfCharacters(text);
+console.log(result);
+
+
+for (let [key, value] of result.entries()){
+  console.log("char: ", key, " : repets: ", value);
+}
