@@ -50,6 +50,44 @@ class LinkedList{
   clear(){//the head does not point to first node;
     this.head = null;
   }
+
+  removeFirst(){//removes and returns the first node;
+    if(this.head){
+      let node = this.head;
+      this.head = node.next;
+      node.next = null;
+      return node;
+    }
+    else{
+      return;
+    }
+  }
+
+  removeLast(){//removes the last node
+    let lastNode;
+    if(!this.head){
+      return;
+    }
+    let node = this.head.next;
+    //first we need to find last node
+    while(node.next){
+      node = node.next;
+      // console.log("node: ", node);
+    }
+    lastNode = node;//node to return
+    node = this.head.next;
+    //second we have to iterate till last node and point to bull
+    while(node.next){
+      if(node.next.data !== lastNode.data){
+        node = node.next;
+      }
+      else{
+        node.next = null;
+      }
+    }
+    // console.log("here", node);
+    return lastNode;
+  }
 }
 
 const nodeOne = new Node(5);
@@ -59,23 +97,31 @@ console.log("list before insertion: ", list);
 
 //insert element into list
 list.insertFirst(5);
-console.log("after insertion: ", list);
+// console.log("after insertion: ", list);
 
 list.insertFirst(7);
-console.log("after insertion: ", list);
+// console.log("after insertion: ", list);
 
 list.insertFirst(2);
-console.log("after insertion: ", list);
+// console.log("after insertion: ", list);
 
 
 //counting the size
-console.log(list.size());
+// console.log(list.size());
 
-//getFirst - returns node that head is pointing to
-console.log("first node: ", list.getFirst());
+// //getFirst - returns node that head is pointing to
+// console.log("first node: ", list.getFirst());
 
-//getLast - should return the last node
-console.log("last node: ", list.getLast());
+// //getLast - should return the last node
+// console.log("last node: ", list.getLast());
 
-list.clear();//to empty the list
-console.log("clear? ", list.size());
+// // list.clear();//to empty the list
+// console.log("clear? ", list.size());
+
+// //removeFirst
+// console.log("first node", list.removeFirst());
+// console.log(list);
+
+console.log("last one", list.removeLast());
+console.log("after removal last: ", list);
+
