@@ -65,18 +65,24 @@ class LinkedList{
 
   removeLast(){//removes the last node
     let lastNode;
-    if(!this.head){
+    if(!this.head){//checks if the list is not empty
       return;
     }
+
+    //this next step is really not necesseary
+    if(!this.head.next){//check if there is only one Node
+      let onlyNode = this.head;
+      this.head = null;
+      return onlyNode;
+    }
+
     let node = this.head.next;
-    //first we need to find last node
     while(node.next){
       node = node.next;
       // console.log("node: ", node);
     }
     lastNode = node;//node to return
     node = this.head.next;
-    //second we have to iterate till last node and point to bull
     while(node.next){
       if(node.next.data !== lastNode.data){
         node = node.next;
