@@ -94,6 +94,36 @@ class LinkedList{
     // console.log("here", node);
     return lastNode;
   }
+
+  insertLast(data){
+    //make a new node
+    let newNode = new Node(data);
+
+    //one way
+    if(!this.head){
+      this.head = newNode;
+      return this.head;
+    }
+
+    let node = this.head;
+    while(node.next){
+      //update the current node
+      node = node.next;
+    }
+    //that should be the last node - then we have to set .next pointer to newNode
+    node.next = newNode;
+    return newNode;
+
+
+    //or we could also reuse - getLast();
+    // let last = getLast();
+    // if(last){
+    //   last.next = newNode;
+    // }
+    // else{
+    //   this.head = newNode;
+    // }
+  }
 }
 
 const nodeOne = new Node(5);
@@ -131,3 +161,6 @@ list.insertFirst(2);
 console.log("last one", list.removeLast());
 console.log("after removal last: ", list);
 
+//insertLast 
+list.insertLast(21);
+console.log("list: ", list);
