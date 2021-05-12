@@ -124,6 +124,22 @@ class LinkedList{
     //   this.head = newNode;
     // }
   }
+
+  getAt(idx){
+    if(!this.head) return;
+
+    let counter = 0;
+    let node = this.head;
+    while(node.next && counter < idx){
+      node = node.next;
+      counter++;
+    }
+    if(idx > counter){
+      return "index is out of bounds";
+    }
+    return node;
+
+  }
 }
 
 const nodeOne = new Node(5);
@@ -164,3 +180,5 @@ console.log("after removal last: ", list);
 //insertLast 
 list.insertLast(21);
 console.log("list: ", list);
+
+console.log(list.getAt(2))
