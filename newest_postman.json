@@ -1,0 +1,1358 @@
+{
+info: {
+_postman_id: "8edcc07a-af18-4333-819c-794abe10380c",
+name: "SC Client API, EPICdev + DRM + FP",
+schema: "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+},
+item: [
+{
+name: "1) Live + DRM",
+item: [
+{
+name: "1 - Get live channels",
+event: [
+{
+listen: "prerequest",
+script: {
+exec: [
+"pm.request.headers.upsert({",
+" 'key': "X-Auth-Token",",
+" 'value': pm.globals.get("epicdev_cl_token1")",
+"});",
+""
+],
+type: "text/javascript"
+}
+}
+],
+request: {
+method: "GET",
+header: [
+{
+key: "X-Auth-Token",
+type: "text",
+value: ""
+}
+],
+url: {
+raw: "https://epic-mha001.epicvideo.tech/sdp/v2/assets?type[eq]=channel&$expand=epg,resources(url)&$orderby=lcn",
+protocol: "https",
+host: [
+"epic-mha001",
+"epicvideo",
+"tech"
+],
+path: [
+"sdp",
+"v2",
+"assets"
+],
+query: [
+{
+key: "type[eq]",
+value: "channel"
+},
+{
+key: "$expand",
+value: "epg,resources(url)",
+description: "optional"
+},
+{
+key: "$expand",
+value: "*",
+description: "optional",
+disabled: true
+},
+{
+key: "$expand",
+value: "genres,resources(url),packages,epg",
+description: "optional",
+disabled: true
+},
+{
+key: "genres.ext_id[in]",
+value: "news",
+description: "optional. Operations: "eq", "neq", "in", "nin"",
+disabled: true
+},
+{
+key: "$limit",
+value: "1",
+description: "optional",
+disabled: true
+},
+{
+key: "$offset",
+value: "5",
+description: "optional",
+disabled: true
+},
+{
+key: "$orderby",
+value: "lcn",
+description: "optional. Possible values: id, lcn, name, rotation_start, rotation_end, favorite, year"
+}
+]
+},
+description: "1) https://discovery-ams.sotalcloud.com/static/docs/guide/#linear-tv 2) https://discovery-ams.sotalcloud.com/static/docs/api.v2/#asset-object"
+},
+response: [ ]
+},
+{
+name: "2 - Get live stream, dash + license | Device1",
+event: [
+{
+listen: "prerequest",
+script: {
+exec: [
+"pm.request.headers.upsert({",
+" 'key': "X-Auth-Token",",
+" 'value': pm.globals.get("epicdev_cl_token1")",
+"});"
+],
+type: "text/javascript"
+}
+},
+{
+listen: "test",
+script: {
+exec: [
+""
+],
+type: "text/javascript"
+}
+}
+],
+request: {
+method: "POST",
+header: [
+{
+key: "X-Auth-Token",
+type: "text",
+value: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IktzOWhtMEU3Qjc2akZYR0pUTmlybWQ2RDNrMjkxdGZiIn0.1U0CcEqa3pYzz2ZIlIgPVpL6xob7CPC74GnHRptqyW8"
+}
+],
+url: {
+raw: "https://epic-mha001.epicvideo.tech/sdp/v2/assets/:asset_id/resources/:resource_id/playback-sessions",
+protocol: "https",
+host: [
+"epic-mha001",
+"epicvideo",
+"tech"
+],
+path: [
+"sdp",
+"v2",
+"assets",
+":asset_id",
+"resources",
+":resource_id",
+"playback-sessions"
+],
+variable: [
+{
+key: "asset_id",
+value: "200271"
+},
+{
+key: "resource_id",
+value: "1025327"
+}
+]
+},
+description: "https://shaka-player-demo.appspot.com/demo/#audiolang=en-GB;textlang=en-GB;uilang=en-GB;panel=CUSTOM%20CONTENT;build=uncompiled"
+},
+response: [ ]
+},
+{
+name: "2 - Get live stream, dash + license | Device2",
+event: [
+{
+listen: "prerequest",
+script: {
+exec: [
+"pm.request.headers.upsert({",
+" 'key': "X-Auth-Token",",
+" 'value': pm.globals.get("epicdev_cl_token2")",
+"});"
+],
+type: "text/javascript"
+}
+},
+{
+listen: "test",
+script: {
+exec: [
+""
+],
+type: "text/javascript"
+}
+}
+],
+request: {
+method: "POST",
+header: [
+{
+key: "X-Auth-Token",
+type: "text",
+value: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IktzOWhtMEU3Qjc2akZYR0pUTmlybWQ2RDNrMjkxdGZiIn0.1U0CcEqa3pYzz2ZIlIgPVpL6xob7CPC74GnHRptqyW8"
+}
+],
+url: {
+raw: "https://epic-mha001.epicvideo.tech/sdp/v2/assets/:asset_id/resources/:resource_id/playback-sessions",
+protocol: "https",
+host: [
+"epic-mha001",
+"epicvideo",
+"tech"
+],
+path: [
+"sdp",
+"v2",
+"assets",
+":asset_id",
+"resources",
+":resource_id",
+"playback-sessions"
+],
+variable: [
+{
+key: "asset_id",
+value: "200271"
+},
+{
+key: "resource_id",
+value: "1025327"
+}
+]
+},
+description: "https://shaka-player-demo.appspot.com/demo/#audiolang=en-GB;textlang=en-GB;uilang=en-GB;panel=CUSTOM%20CONTENT;build=uncompiled"
+},
+response: [ ]
+},
+{
+name: "2 - Get live stream, dash + license | Device3",
+event: [
+{
+listen: "prerequest",
+script: {
+exec: [
+"pm.request.headers.upsert({",
+" 'key': "X-Auth-Token",",
+" 'value': pm.globals.get("epicdev_cl_token3")",
+"});"
+],
+type: "text/javascript"
+}
+},
+{
+listen: "test",
+script: {
+exec: [
+""
+],
+type: "text/javascript"
+}
+}
+],
+request: {
+method: "POST",
+header: [
+{
+key: "X-Auth-Token",
+type: "text",
+value: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IktzOWhtMEU3Qjc2akZYR0pUTmlybWQ2RDNrMjkxdGZiIn0.1U0CcEqa3pYzz2ZIlIgPVpL6xob7CPC74GnHRptqyW8"
+}
+],
+url: {
+raw: "https://epic-mha001.epicvideo.tech/sdp/v2/assets/:asset_id/resources/:resource_id/playback-sessions",
+protocol: "https",
+host: [
+"epic-mha001",
+"epicvideo",
+"tech"
+],
+path: [
+"sdp",
+"v2",
+"assets",
+":asset_id",
+"resources",
+":resource_id",
+"playback-sessions"
+],
+variable: [
+{
+key: "asset_id",
+value: "200271"
+},
+{
+key: "resource_id",
+value: "1025327"
+}
+]
+},
+description: "https://shaka-player-demo.appspot.com/demo/#audiolang=en-GB;textlang=en-GB;uilang=en-GB;panel=CUSTOM%20CONTENT;build=uncompiled"
+},
+response: [ ]
+}
+]
+},
+{
+name: "2) Catchup + DRM",
+item: [
+{
+name: "1 - Get Catchup Records",
+event: [
+{
+listen: "prerequest",
+script: {
+exec: [
+"pm.request.headers.upsert({",
+" 'key': "X-Auth-Token",",
+" 'value': pm.globals.get("epicdev_cl_token1")",
+"});"
+],
+type: "text/javascript"
+}
+}
+],
+request: {
+method: "GET",
+header: [
+{
+key: "X-Auth-Token",
+type: "text",
+value: ""
+},
+{
+key: "X-Localization-Language",
+type: "text",
+value: "en"
+}
+],
+url: {
+raw: "https://epic-mha001.epicvideo.tech/sdp/v2/live-events?catchup[eq]=1&live.id[in]=200261&$expand=thumbnail(url)",
+protocol: "https",
+host: [
+"epic-mha001",
+"epicvideo",
+"tech"
+],
+path: [
+"sdp",
+"v2",
+"live-events"
+],
+query: [
+{
+key: "$expand",
+value: "*",
+description: "optional",
+disabled: true
+},
+{
+key: "$offset",
+value: "10",
+description: "optional",
+disabled: true
+},
+{
+key: "$limit",
+value: "10",
+description: "optional",
+disabled: true
+},
+{
+key: "catchup[eq]",
+value: "1",
+description: "optional"
+},
+{
+key: "start_time[gt]",
+value: "2020-08-27T00:00:00Z",
+description: " Operations: "eq", "neq", "gt", "gte", "lt", "lte", "in", "nin"",
+disabled: true
+},
+{
+key: "end_time[lt]",
+value: "2020-08-31T00:00:00Z",
+description: " Operations: "eq", "neq", "gt", "gte", "lt", "lte", "in", "nin"",
+disabled: true
+},
+{
+key: "live.id[in]",
+value: "200261",
+description: " Operations: "eq", "neq", "gt", "gte", "lt", "lte", "in", "nin""
+},
+{
+key: "$expand",
+value: "thumbnail(url)"
+}
+]
+},
+description: "https://discovery-ams.sotalcloud.com/static/docs/guide/#how-to-display-epg Set the time range in the `start_time` and `end_time` parameters of the call. The obtained objects contain the next main fields: 1) `start_time` - The program’s playback start time in UTC, in the format “yyyy-MM-ddTHH:mm:ssZ” (ISO 8601 standard). 2) `end_time` - The program’s playback end time in UTC, in the format “yyyy-MM-ddTHH:mm:ssZ” (ISO 8601 standard). 3) `name` - The program’s title/The name of the TV show. 4) `description` - The program’s description. *May not be returned* 5) `thumbnail.url` - The program’s poster URL. *May not be returned* 6) `program.genres` - List of the program's genres. *May not be returned* 7) `catchup` - A flag that indicates that the program is available for the Catch-up service, or, in other words, that this program is available to viewers for recording directly from the EPG. *May not be returned*"
+},
+response: [ ]
+},
+{
+name: "2 - Get catchup stream, dash + license | Device1",
+event: [
+{
+listen: "prerequest",
+script: {
+exec: [
+"pm.request.headers.upsert({",
+" 'key': "X-Auth-Token",",
+" 'value': pm.globals.get("epicdev_cl_token1")",
+"});"
+],
+type: "text/javascript"
+}
+},
+{
+listen: "test",
+script: {
+exec: [
+""
+],
+type: "text/javascript"
+}
+}
+],
+request: {
+method: "POST",
+header: [
+{
+key: "X-Auth-Token",
+type: "text",
+value: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IktzOWhtMEU3Qjc2akZYR0pUTmlybWQ2RDNrMjkxdGZiIn0.1U0CcEqa3pYzz2ZIlIgPVpL6xob7CPC74GnHRptqyW8"
+}
+],
+url: {
+raw: "https://epic-mha001.epicvideo.tech/sdp/v2/live-events/:live_event_id/catchup-playback-sessions?stream_format=dash",
+protocol: "https",
+host: [
+"epic-mha001",
+"epicvideo",
+"tech"
+],
+path: [
+"sdp",
+"v2",
+"live-events",
+":live_event_id",
+"catchup-playback-sessions"
+],
+query: [
+{
+key: "stream_format",
+value: "dash"
+}
+],
+variable: [
+{
+key: "live_event_id",
+value: "50074791",
+type: "string"
+}
+]
+},
+description: "https://shaka-player-demo.appspot.com/demo/#audiolang=en-GB;textlang=en-GB;uilang=en-GB;panel=CUSTOM%20CONTENT;build=uncompiled"
+},
+response: [ ]
+},
+{
+name: "2 - Get catchup stream, dash + license | Device2",
+event: [
+{
+listen: "prerequest",
+script: {
+exec: [
+"pm.request.headers.upsert({",
+" 'key': "X-Auth-Token",",
+" 'value': pm.globals.get("epicdev_cl_token2")",
+"});"
+],
+type: "text/javascript"
+}
+},
+{
+listen: "test",
+script: {
+exec: [
+""
+],
+type: "text/javascript"
+}
+}
+],
+request: {
+method: "POST",
+header: [
+{
+key: "X-Auth-Token",
+type: "text",
+value: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IktzOWhtMEU3Qjc2akZYR0pUTmlybWQ2RDNrMjkxdGZiIn0.1U0CcEqa3pYzz2ZIlIgPVpL6xob7CPC74GnHRptqyW8"
+}
+],
+url: {
+raw: "https://epic-mha001.epicvideo.tech/sdp/v2/live-events/:live_event_id/catchup-playback-sessions?stream_format=dash",
+protocol: "https",
+host: [
+"epic-mha001",
+"epicvideo",
+"tech"
+],
+path: [
+"sdp",
+"v2",
+"live-events",
+":live_event_id",
+"catchup-playback-sessions"
+],
+query: [
+{
+key: "stream_format",
+value: "dash"
+}
+],
+variable: [
+{
+key: "live_event_id",
+value: "50074791",
+type: "string"
+}
+]
+},
+description: "https://shaka-player-demo.appspot.com/demo/#audiolang=en-GB;textlang=en-GB;uilang=en-GB;panel=CUSTOM%20CONTENT;build=uncompiled"
+},
+response: [ ]
+},
+{
+name: "2 - Get catchup stream, dash + license | Device3",
+event: [
+{
+listen: "prerequest",
+script: {
+exec: [
+"pm.request.headers.upsert({",
+" 'key': "X-Auth-Token",",
+" 'value': pm.globals.get("epicdev_cl_token3")",
+"});"
+],
+type: "text/javascript"
+}
+},
+{
+listen: "test",
+script: {
+exec: [
+""
+],
+type: "text/javascript"
+}
+}
+],
+request: {
+method: "POST",
+header: [
+{
+key: "X-Auth-Token",
+type: "text",
+value: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IktzOWhtMEU3Qjc2akZYR0pUTmlybWQ2RDNrMjkxdGZiIn0.1U0CcEqa3pYzz2ZIlIgPVpL6xob7CPC74GnHRptqyW8"
+}
+],
+url: {
+raw: "https://epic-mha001.epicvideo.tech/sdp/v2/live-events/:live_event_id/catchup-playback-sessions?stream_format=dash",
+protocol: "https",
+host: [
+"epic-mha001",
+"epicvideo",
+"tech"
+],
+path: [
+"sdp",
+"v2",
+"live-events",
+":live_event_id",
+"catchup-playback-sessions"
+],
+query: [
+{
+key: "stream_format",
+value: "dash"
+},
+{
+key: "stream_format",
+value: "hls7",
+disabled: true
+}
+],
+variable: [
+{
+key: "live_event_id",
+value: "50074789",
+type: "string"
+}
+]
+},
+description: "https://shaka-player-demo.appspot.com/demo/#audiolang=en-GB;textlang=en-GB;uilang=en-GB;panel=CUSTOM%20CONTENT;build=uncompiled"
+},
+response: [ ]
+}
+]
+},
+{
+name: "3) nPVR + DRM",
+item: [
+{
+name: "1 - Get nPVR records",
+event: [
+{
+listen: "prerequest",
+script: {
+exec: [
+"pm.request.headers.upsert({",
+" 'key': "X-Auth-Token",",
+" 'value': pm.globals.get("epicdev_cl_token1")",
+"});",
+""
+],
+type: "text/javascript"
+}
+}
+],
+request: {
+method: "GET",
+header: [
+{
+key: "X-Auth-Token",
+type: "text",
+value: ""
+}
+],
+url: {
+raw: "https://epic-mha001.epicvideo.tech/sdp/v2/dvr-tasks?$expand=live,thumbnail(url),program",
+protocol: "https",
+host: [
+"epic-mha001",
+"epicvideo",
+"tech"
+],
+path: [
+"sdp",
+"v2",
+"dvr-tasks"
+],
+query: [
+{
+key: "$expand",
+value: "*",
+description: "optional",
+disabled: true
+},
+{
+key: "id[eq]",
+value: "675942",
+description: "optional. Operations: "eq", "neq", "gt", "gte", "lt", "lte", "in", "nin"",
+disabled: true
+},
+{
+key: "subscribers.id[in]",
+value: "212119",
+description: "optional. Operations: "eq", "neq", "gt", "gte", "lt", "lte", "in", "nin"",
+disabled: true
+},
+{
+key: "state[in]",
+value: "error",
+description: "optional filter. Operations: "eq", "neq", "in", "nin". Possible values: pending, scheduled, recording, recorded, error",
+disabled: true
+},
+{
+key: "$orderby",
+value: "create_time",
+description: "optional. Possible values: create_time, -create_time, size, -size",
+disabled: true
+},
+{
+key: "$expand",
+value: "live,thumbnail(url),program"
+}
+]
+},
+description: "1) https://discovery-ams.sotalcloud.com/static/docs/api-ng/#dvr-tasks 2) https://discovery-ams.sotalcloud.com/static/docs/guide/#npvr"
+},
+response: [ ]
+},
+{
+name: "2 - Get nPVR stream, dash + license | Device1",
+event: [
+{
+listen: "prerequest",
+script: {
+exec: [
+"pm.request.headers.upsert({",
+" 'key': "X-Auth-Token",",
+" 'value': pm.globals.get("epicdev_cl_token1")",
+"});"
+],
+type: "text/javascript"
+}
+},
+{
+listen: "test",
+script: {
+exec: [
+""
+],
+type: "text/javascript"
+}
+}
+],
+request: {
+method: "POST",
+header: [
+{
+key: "X-Auth-Token",
+type: "text",
+value: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IktzOWhtMEU3Qjc2akZYR0pUTmlybWQ2RDNrMjkxdGZiIn0.1U0CcEqa3pYzz2ZIlIgPVpL6xob7CPC74GnHRptqyW8"
+}
+],
+url: {
+raw: "https://epic-mha001.epicvideo.tech/sdp/v2/dvr-tasks/:id/playback-sessions?stream_format=hls7",
+protocol: "https",
+host: [
+"epic-mha001",
+"epicvideo",
+"tech"
+],
+path: [
+"sdp",
+"v2",
+"dvr-tasks",
+":id",
+"playback-sessions"
+],
+query: [
+{
+key: "stream_format",
+value: "hls7"
+}
+],
+variable: [
+{
+key: "id",
+value: "784369",
+type: "string"
+}
+]
+},
+description: "https://shaka-player-demo.appspot.com/demo/#audiolang=en-GB;textlang=en-GB;uilang=en-GB;panel=CUSTOM%20CONTENT;build=uncompiled"
+},
+response: [ ]
+},
+{
+name: "2 - Get nPVR stream, dash + license | Device2",
+event: [
+{
+listen: "prerequest",
+script: {
+exec: [
+"pm.request.headers.upsert({",
+" 'key': "X-Auth-Token",",
+" 'value': pm.globals.get("epicdev_cl_token2")",
+"});"
+],
+type: "text/javascript"
+}
+},
+{
+listen: "test",
+script: {
+exec: [
+""
+],
+type: "text/javascript"
+}
+}
+],
+request: {
+method: "POST",
+header: [
+{
+key: "X-Auth-Token",
+type: "text",
+value: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IktzOWhtMEU3Qjc2akZYR0pUTmlybWQ2RDNrMjkxdGZiIn0.1U0CcEqa3pYzz2ZIlIgPVpL6xob7CPC74GnHRptqyW8"
+}
+],
+url: {
+raw: "https://epic-mha001.epicvideo.tech/sdp/v2/dvr-tasks/:id/playback-sessions?stream_format=dash",
+protocol: "https",
+host: [
+"epic-mha001",
+"epicvideo",
+"tech"
+],
+path: [
+"sdp",
+"v2",
+"dvr-tasks",
+":id",
+"playback-sessions"
+],
+query: [
+{
+key: "stream_format",
+value: "dash"
+}
+],
+variable: [
+{
+key: "id",
+value: "784369",
+type: "string"
+}
+]
+},
+description: "https://shaka-player-demo.appspot.com/demo/#audiolang=en-GB;textlang=en-GB;uilang=en-GB;panel=CUSTOM%20CONTENT;build=uncompiled"
+},
+response: [ ]
+},
+{
+name: "2 - Get nPVR stream, dash + license | Device3",
+event: [
+{
+listen: "prerequest",
+script: {
+exec: [
+"pm.request.headers.upsert({",
+" 'key': "X-Auth-Token",",
+" 'value': pm.globals.get("epicdev_cl_token3")",
+"});"
+],
+type: "text/javascript"
+}
+},
+{
+listen: "test",
+script: {
+exec: [
+""
+],
+type: "text/javascript"
+}
+}
+],
+request: {
+method: "POST",
+header: [
+{
+key: "X-Auth-Token",
+type: "text",
+value: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IktzOWhtMEU3Qjc2akZYR0pUTmlybWQ2RDNrMjkxdGZiIn0.1U0CcEqa3pYzz2ZIlIgPVpL6xob7CPC74GnHRptqyW8"
+}
+],
+url: {
+raw: "https://epic-mha001.epicvideo.tech/sdp/v2/dvr-tasks/:id/playback-sessions?stream_format=dash",
+protocol: "https",
+host: [
+"epic-mha001",
+"epicvideo",
+"tech"
+],
+path: [
+"sdp",
+"v2",
+"dvr-tasks",
+":id",
+"playback-sessions"
+],
+query: [
+{
+key: "stream_format",
+value: "dash"
+},
+{
+key: "stream_format",
+value: "hls7",
+disabled: true
+}
+],
+variable: [
+{
+key: "id",
+value: "784369",
+type: "string"
+}
+]
+},
+description: "https://shaka-player-demo.appspot.com/demo/#audiolang=en-GB;textlang=en-GB;uilang=en-GB;panel=CUSTOM%20CONTENT;build=uncompiled"
+},
+response: [ ]
+},
+{
+name: "3 - Create nPVR record",
+event: [
+{
+listen: "prerequest",
+script: {
+exec: [
+"pm.request.headers.upsert({",
+" 'key': "X-Auth-Token",",
+" 'value': pm.globals.get("epicdev_cl_token")",
+"});",
+""
+],
+type: "text/javascript"
+}
+}
+],
+request: {
+method: "POST",
+header: [ ],
+body: {
+mode: "raw",
+raw: "{ "event": { "id": 50074789 }, "recorder": { "ext_id": "x:npvr" } }",
+options: {
+raw: {
+language: "json"
+}
+}
+},
+url: {
+raw: "https://epic-mha001.epicvideo.tech/sdp/v2/dvr-tasks",
+protocol: "https",
+host: [
+"epic-mha001",
+"epicvideo",
+"tech"
+],
+path: [
+"sdp",
+"v2",
+"dvr-tasks"
+]
+}
+},
+response: [ ]
+}
+]
+},
+{
+name: "Logging In = Device 1",
+event: [
+{
+listen: "test",
+script: {
+exec: [
+"var jsonData = JSON.parse(responseBody);",
+"pm.globals.set("epicdev_cl_token1", jsonData.data);",
+""
+],
+type: "text/javascript"
+}
+}
+],
+request: {
+method: "POST",
+header: [
+{
+key: "Content-Type",
+name: "Content-Type",
+value: "application/x-www-form-urlencoded",
+type: "text"
+}
+],
+body: {
+mode: "urlencoded",
+urlencoded: [
+{
+key: "grant_type",
+value: "password",
+description: "mandatory",
+type: "text"
+},
+{
+key: "device_id",
+value: "1234567890",
+description: "mandatory",
+type: "text"
+},
+{
+key: "client_id",
+value: "cloud:EPICdev_android_device",
+description: "mandatory",
+type: "text"
+},
+{
+key: "username",
+value: "dummy6@skittertv.com",
+description: "mandatory",
+type: "text"
+},
+{
+key: "password",
+value: "112233",
+description: "mandatory",
+type: "text"
+},
+{
+key: "device_model",
+value: "iPhone X",
+description: "optional",
+type: "text",
+disabled: true
+},
+{
+key: "device_os",
+value: "iOS",
+description: "optional",
+type: "text",
+disabled: true
+},
+{
+key: "device_os_version",
+value: "12.3.1",
+description: "optional",
+type: "text",
+disabled: true
+},
+{
+key: "device_app_version",
+value: "1.0.0",
+description: "optional",
+type: "text",
+disabled: true
+},
+{
+key: "device_app_name",
+value: "com.sotalcloud.ng",
+description: "optional",
+type: "text",
+disabled: true
+}
+]
+},
+url: {
+raw: "https://epic-mha001.epicvideo.tech/sdp/v2/authorize",
+protocol: "https",
+host: [
+"epic-mha001",
+"epicvideo",
+"tech"
+],
+path: [
+"sdp",
+"v2",
+"authorize"
+]
+},
+description: "https://discovery-ams.sotalcloud.com/static/docs/guide/#logging-in"
+},
+response: [ ]
+},
+{
+name: "Logging In = Device 2",
+event: [
+{
+listen: "test",
+script: {
+exec: [
+"var jsonData = JSON.parse(responseBody);",
+"pm.globals.set("epicdev_cl_token2", jsonData.data);",
+""
+],
+type: "text/javascript"
+}
+}
+],
+request: {
+method: "POST",
+header: [
+{
+key: "Content-Type",
+name: "Content-Type",
+value: "application/x-www-form-urlencoded",
+type: "text"
+}
+],
+body: {
+mode: "urlencoded",
+urlencoded: [
+{
+key: "grant_type",
+value: "password",
+description: "mandatory",
+type: "text"
+},
+{
+key: "device_id",
+value: "1234567890",
+description: "mandatory",
+type: "text"
+},
+{
+key: "client_id",
+value: "cloud:EPICdev_android_device",
+description: "mandatory",
+type: "text"
+},
+{
+key: "username",
+value: "dummy6@skittertv.com",
+description: "mandatory",
+type: "text"
+},
+{
+key: "password",
+value: "112233",
+description: "mandatory",
+type: "text"
+},
+{
+key: "device_model",
+value: "iPhone X",
+description: "optional",
+type: "text",
+disabled: true
+},
+{
+key: "device_os",
+value: "iOS",
+description: "optional",
+type: "text",
+disabled: true
+},
+{
+key: "device_os_version",
+value: "12.3.1",
+description: "optional",
+type: "text",
+disabled: true
+},
+{
+key: "device_app_version",
+value: "1.0.0",
+description: "optional",
+type: "text",
+disabled: true
+},
+{
+key: "device_app_name",
+value: "com.sotalcloud.ng",
+description: "optional",
+type: "text",
+disabled: true
+}
+]
+},
+url: {
+raw: "https://epic-mha001.epicvideo.tech/sdp/v2/authorize",
+protocol: "https",
+host: [
+"epic-mha001",
+"epicvideo",
+"tech"
+],
+path: [
+"sdp",
+"v2",
+"authorize"
+]
+},
+description: "https://discovery-ams.sotalcloud.com/static/docs/guide/#logging-in"
+},
+response: [ ]
+},
+{
+name: "Logging In = Device 3",
+event: [
+{
+listen: "test",
+script: {
+exec: [
+"var jsonData = JSON.parse(responseBody);",
+"pm.globals.set("epicdev_cl_token3", jsonData.data);",
+""
+],
+type: "text/javascript"
+}
+}
+],
+request: {
+method: "POST",
+header: [
+{
+key: "Content-Type",
+name: "Content-Type",
+value: "application/x-www-form-urlencoded",
+type: "text"
+}
+],
+body: {
+mode: "urlencoded",
+urlencoded: [
+{
+key: "grant_type",
+value: "password",
+description: "mandatory",
+type: "text"
+},
+{
+key: "device_id",
+value: "1234567890",
+description: "mandatory",
+type: "text"
+},
+{
+key: "client_id",
+value: "cloud:EPICdev_android_device",
+description: "mandatory",
+type: "text"
+},
+{
+key: "username",
+value: "dummy6@skittertv.com",
+description: "mandatory",
+type: "text"
+},
+{
+key: "password",
+value: "112233",
+description: "mandatory",
+type: "text"
+},
+{
+key: "device_model",
+value: "iPhone X",
+description: "optional",
+type: "text",
+disabled: true
+},
+{
+key: "device_os",
+value: "iOS",
+description: "optional",
+type: "text",
+disabled: true
+},
+{
+key: "device_os_version",
+value: "12.3.1",
+description: "optional",
+type: "text",
+disabled: true
+},
+{
+key: "device_app_version",
+value: "1.0.0",
+description: "optional",
+type: "text",
+disabled: true
+},
+{
+key: "device_app_name",
+value: "com.sotalcloud.ng",
+description: "optional",
+type: "text",
+disabled: true
+}
+]
+},
+url: {
+raw: "https://epic-mha001.epicvideo.tech/sdp/v2/authorize",
+protocol: "https",
+host: [
+"epic-mha001",
+"epicvideo",
+"tech"
+],
+path: [
+"sdp",
+"v2",
+"authorize"
+]
+},
+description: "https://discovery-ams.sotalcloud.com/static/docs/guide/#logging-in"
+},
+response: [ ]
+},
+{
+name: "Get User Info",
+event: [
+{
+listen: "test",
+script: {
+exec: [
+""
+],
+type: "text/javascript"
+}
+},
+{
+listen: "prerequest",
+script: {
+exec: [
+"pm.request.headers.upsert({",
+" 'key': "X-Auth-Token",",
+" 'value': pm.globals.get("epicdev_cl_token")",
+"});",
+""
+],
+type: "text/javascript"
+}
+}
+],
+request: {
+method: "GET",
+header: [
+{
+key: "Content-Type",
+name: "Content-Type",
+value: "application/x-www-form-urlencoded",
+type: "text"
+}
+],
+url: {
+raw: "https://epic-mha001.epicvideo.tech/sdp/v2/subscribers/me",
+protocol: "https",
+host: [
+"epic-mha001",
+"epicvideo",
+"tech"
+],
+path: [
+"sdp",
+"v2",
+"subscribers",
+"me"
+]
+},
+description: "https://discovery-ams.sotalcloud.com/static/docs/guide/#logging-in"
+},
+response: [ ]
+}
+],
+event: [
+{
+listen: "prerequest",
+script: {
+type: "text/javascript",
+exec: [
+""
+]
+}
+},
+{
+listen: "test",
+script: {
+type: "text/javascript",
+exec: [
+""
+]
+}
+}
+]
+}
