@@ -28,4 +28,19 @@ function capitalize(str){
   return str;
 }
 
+//solution 3
+// let str = "I am the greatest!";
+// let firstLetter = "";
+
+// for (let i = 0, l = str.length; i < l; i+= 1){//more efficient construct
+//   if(i === 0){
+//     str = str.charAt(0).toUpperCase().concat(str.slice(1));
+//   }
+//   if(str[i+1] && str[i] === " "){
+//     firstLetter = str.substring(i+1, i+2).toUpperCase();
+//     str = str.substring(0, i+1) + firstLetter.concat(str.substr(i+2));
+//   }
+// }
+// console.log(str);
+
 capitalize(s);
