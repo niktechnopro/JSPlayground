@@ -30,17 +30,32 @@ function capitalize(str){
 
 //solution 3
 // let str = "I am the greatest!";
-// let firstLetter = "";
+function capitalize(str){
+  let firstLetter = "";
+  for (let i = 0, l = str.length; i < l; i+= 1){//more efficient construct
+    if(i === 0){
+      str = str.charAt(0).toUpperCase().concat(str.slice(1));
+    }
+    if(str[i+1] && str[i] === " "){
+      firstLetter = str.substring(i+1, i+2).toUpperCase();
+      str = str.substring(0, i+1) + firstLetter.concat(str.substr(i+2));
+    }
+  }
+  return str;
+}
 
-// for (let i = 0, l = str.length; i < l; i+= 1){//more efficient construct
-//   if(i === 0){
-//     str = str.charAt(0).toUpperCase().concat(str.slice(1));
-//   }
-//   if(str[i+1] && str[i] === " "){
-//     firstLetter = str.substring(i+1, i+2).toUpperCase();
-//     str = str.substring(0, i+1) + firstLetter.concat(str.substr(i+2));
-//   }
-// }
-// console.log(str);
+
+//TODO - to add a method with an Array;
+//convert into array
+function capitalize(str){
+  let arr = str.split(" ");
+  //iterate through array and capitalize first firstLetter
+  for(let i = 0, n = arr.length; i < n; i+=1){
+    arr[i]=arr[i].charAt(0).toUpperCase() + arr[i].slice(1);
+  }
+  return arr.join(" ");
+}
+
+//compose the string from array
 
 capitalize(s);
