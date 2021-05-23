@@ -40,4 +40,13 @@ function chunk(arr, chk){
 //   return chunked;
 // }
 
+//using spread operator
+// function chunking(arr, step){
+//   let result = [];
+//   for(let i = 0, n = arr.length; i < n; i += step){
+//     result = [...result, arr.slice(i, i+step)];
+//   }
+//   return result;
+// }
+
 console.log(chunk(test2, 2));
