@@ -24,6 +24,31 @@ function palindrome(str){
   return true;
 }
 
+//same as 1st method
+// const str = "I am the greatest";
+// const str = "abba";
+
+// function isPalindrome(st){
+//   let str = st.toLowerCase();
+//   let reversed = "";
+//   for (let char of str){
+//     reversed = char + reversed;
+//   }
+//   // console.log(reversed);
+//   return reversed === str;
+// }
+
+// function isPalindrome(str){
+//   str = str.toLowerCase();
+//   for(let i = 0, n = str.length; i < n; i++){
+//     if(str.charAt(i) !== str.charAt(n -1 - i)) return false;
+//   }
+//   return true;
+// }
+
+// isPalindrome(str);
+
+
 
 palindrome("abcba");
 
