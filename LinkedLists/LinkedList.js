@@ -58,7 +58,7 @@ class LinkedList{
       node.next = null;
       return node;
     }
-    else{
+    else{//the case if head points to null - empty
       return;
     }
   }
@@ -138,7 +138,40 @@ class LinkedList{
       return "index is out of bounds";
     }
     return node;
+  }
 
+  removeAt(idx){
+    console.log("before remove idx: ", idx, " list: ", list);
+    //remove node we are trying to remove
+    //edge cases
+    if(this.head === null) return;//the list is empty
+    //another way
+    if(!this.head) return;
+
+
+    if(idx === 0){//if idx=0 - just remove 1st node
+      // this.removeFirst();
+      // return list;
+      
+      //another way
+      this.head = this.head.next;
+      return list;
+    }
+    
+    let nodeCount = 0;
+    let currentNode = this.head; //we start with 1st node
+    let prevNode = null;
+
+    while(currentNode.next){
+      prevNode = currentNode;
+      nodeCount += 1;
+      currentNode = currentNode.next;
+      if(nodeCount === idx){
+        prevNode.next = currentNode.next;
+        break;
+      }
+    }
+    return list;
   }
 }
 
@@ -174,11 +207,14 @@ list.insertFirst(2);
 // console.log("first node", list.removeFirst());
 // console.log(list);
 
-console.log("last one", list.removeLast());
-console.log("after removal last: ", list);
+// list.removeLast();
+// console.log("after removal last: ", list);
 
-//insertLast 
-list.insertLast(21);
-console.log("list: ", list);
+// //insertLast 
+// list.insertLast(21);
+// console.log("list: ", list);
 
-console.log(list.getAt(2))
+//removeAt
+console.log("list before removal: ", list);
+list.removeAt(2);
+
