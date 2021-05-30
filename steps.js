@@ -34,5 +34,22 @@ function steps(n, tempHelper = n){//tempHelper - is a row;
   steps(n-1, tempHelper);
 }
 
+//another iterative solution
+// function steps(n){
+//   let stairsRow = "";
+//   for(let row=0; row < n; row++){
+//     stairsRow = "";
+//     for(let column=0; column < n; column++){
+//       if(column <= row){
+//         stairsRow += "#";
+//       }
+//       else{
+//         stairsRow += " ";
+//       }
+//     }
+//     console.log(stairsRow)
+//   }
+// }
+
 
 steps(5);

@@ -27,7 +27,21 @@ function whatUsedTheMost(str){
     }
   }
 
-  return obj;
+  // return obj;//returns an object
+  return Object.keys(obj)[0];//returns key
 }
+
+//another way
+// function maxChar(str) {
+//    //build the MAP of characters in string
+//   const kvmap = {};
+//   for(let ch of str){
+//     kvmap[ch] = kvmap[ch] + 1 || 1;
+//   }
+//   //find the highest value
+//   let highest = Math.max(...Object.values(kvmap));
+//   // console.log(kvmap, highest);
+//   return Object.keys(kvmap).find(key => kvmap[key] === highest); 
+// }
 
 whatUsedTheMost(sample);
