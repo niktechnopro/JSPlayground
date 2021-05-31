@@ -58,4 +58,18 @@ function capitalize(str){
 
 //compose the string from array
 
+//another way
+function capitalizeFirstLetter(str){
+  let theFirstChar;
+  for(let idx = 0, n = str.length; idx < n; idx += 1){
+    if((idx === 0 && (str.charAt(0) !== " ")) || str.charAt(idx - 1) && (str.charAt(idx-1) === " ")){
+      theFirstChar = str.charAt(idx).toUpperCase();
+      str = str.slice(0, idx) + theFirstChar + str.slice(idx+1);
+    }
+  }
+  return str;
+}
+
+capitalizeFirstLetter(str);
+
 capitalize(s);
