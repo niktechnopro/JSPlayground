@@ -64,7 +64,8 @@ function capitalizeFirstLetter(str){
   for(let idx = 0, n = str.length; idx < n; idx += 1){
     if((idx === 0 && (str.charAt(0) !== " ")) || str.charAt(idx - 1) && (str.charAt(idx-1) === " ")){
       theFirstChar = str.charAt(idx).toUpperCase();
-      str = str.slice(0, idx) + theFirstChar + str.slice(idx+1);
+      // str = str.slice(0, idx) + theFirstChar + str.slice(idx+1);//either will work
+      str = str.substring(0, idx) + theFirstChar + str.substring(idx+1);
     }
   }
   return str;
