@@ -46,7 +46,7 @@ export default function App() {
       isCompleted: !ourItem.isCompleted
     };
     mTodos[idx] = updatedItem;
-    setTodos(mTodos); //need to spread it to create new obejct
+    setTodos(mTodos); //need to spread it to create new object
   };
 
   const removeItem = (idx) => {
