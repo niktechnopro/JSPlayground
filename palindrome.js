@@ -48,6 +48,36 @@ function palindrome(str){
 
 // isPalindrome(str);
 
+//for number option 1
+// var isPalindrome = function(x) {
+//     if(x < 0) return false;
+//     let temp = "";
+//     for(let char of x.toString()){
+//       temp = char + temp;
+//     }
+//     if(temp === x.toString()){
+//       return true;
+//     }
+    
+//     return false;
+// };
+
+// for number option 2
+// var isPalindrome = function(x) {
+//     if(x < 0) return false;
+    
+//     for(let i = 0, n = x.toString().length; i < n; i++){
+//         if(x.toString()[i] != x.toString()[n - i - 1]) return false;
+//     }
+    
+//     return true;
+// };
+
+// Input: x = -121
+// Output: false
+// Explanation: From left to right, it reads -121. From right to left, it becomes 121-. Therefore it is not a palindrome.
+
+// isPalindrome(122);
 
 
 palindrome("abcba");
