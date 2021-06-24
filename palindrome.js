@@ -63,7 +63,7 @@ function palindrome(str){
 // };
 
 // for number option 2
-// var isPalindrome = function(x) {
+// var isPalindrome = function(x) { //fastest
 //     if(x < 0) return false;
     
 //     for(let i = 0, n = x.toString().length; i < n; i++){
